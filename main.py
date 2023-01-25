@@ -1,11 +1,14 @@
-# This is a sample Python script.
+# This is a sample Python script
 
+class Otions():
+    def __init__(self, lenght):
+        self.lenght = lenght
 
 board = [
     [None, None, None],
     [None, None, None],
     [None, None, None],
-]
+    ]
 
 
 def print_board():
@@ -13,11 +16,27 @@ def print_board():
     print("|", str(board[1][0]), "|", str(board[1][1]), "|", str(board[1][2]), "|")
     print("|", str(board[2][0]), "|", str(board[2][1]), "|", str(board[2][2]), "|")
 
-
-board2 = {"1": board[0][0], "2": board[0][1], "3": board[0][1]}
-
-while True:
+def game():
+    global turn
     col = int(input("Please select the column to put the symbol right there (1,2 or 3): "))
     row = int(input("Please select the row to put the symbol there (1,2 or 3): "))
-    board[col][row] = 'O'
-    print_board()
+    if board[col][row] is None:
+        board[col][row] = player[turn]
+        print_board()
+        turn = 1 - turn
+    else:
+        print('The field is already taken! Please select empty field')
+
+player = ["O","X"]
+turn = 0
+while True:
+    game()
+
+
+
+
+
+
+
+
+
