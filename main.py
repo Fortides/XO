@@ -1,6 +1,8 @@
 # This is a sample Python script
+import sys
 
-class Otions():
+
+class Options():
     def __init__(self, lenght):
         self.lenght = lenght
 
@@ -24,18 +26,38 @@ def game():
         board[col][row] = player[turn]
         print_board()
         turn = 1 - turn
+        win(board)
     else:
         print('The field is already taken! Please select empty field')
+def items(items):
+    for y in range(3):
+        if None not in items[y]:
+            if len((set(items[y]))) == 1:
+                sys.exit()
 
-player = ["O","X"]
+        if items[0][y] is not None:
+            if items[1][y] is not None:
+                if items[2][y] is not None:
+                    if items[0][y] == items[1][y] == items[2][y]:
+                        sys.exit()
+                    if items[y][y] == items[y][y] == items[y][y]:
+                        sys.exit()
+
+
+
+
+def win(tab):
+    items(tab)
+
+1
+
+
+player = ["o","x"]
 turn = 0
+
+
 while True:
     game()
-
-
-
-
-
 
 
 
